@@ -5,3 +5,4 @@ class Solution:
             key = ''.join(sorted(words))
             groups[key].append(words)
         return list(groups.values())    
+        
