@@ -3,7 +3,6 @@ class Solution:
         frequency = {}
         for num in nums:
             frequency[num] = frequency.get(num,0)+1
-        sorted_frequency = sorted(frequency,key = frequency.get,reverse=True)
-        return sorted_frequency[:k]
-
+        sorted_frequency = sorted(frequency,key = frequency.get,reverse = True)
+        return sorted_frequency[:k] 
         
