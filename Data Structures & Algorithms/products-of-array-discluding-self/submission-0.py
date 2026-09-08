@@ -1,18 +1,14 @@
 class Solution:
     def productExceptSelf(self, nums: List[int]) -> List[int]:
+        n = len(nums)
+        answer = [1] * n
 
-        product = 1
-        zeros = nums.count(0)
-        if zeros > 1: return [0] * len(nums)
-        for num in nums:
-            if num != 0:
-                product *= num
-        result = []
-
-        for num in nums:
-            if num == 0:
-                result.append(product)
-            else:
-                result.append(0 if zeros == 1 else int(product / num))
-
-        return result
+        prefix = 1
+        for i in range(n):
+            answer[i] = prefix
+            prefix = prefix * nums[i]
+        suffix = 1
+        for i in range(n-1,-1,-1):
+            answer[i] = answer[i]* suffix
+            suffix = suffix * nums[i]
+        return answer
